@@ -4,6 +4,8 @@ const History = () => {
     /**
      * TODO:
      * do like the entries
+     * 
+     * Borrow from skills/Education
      */
     return (
         <div>History</div>

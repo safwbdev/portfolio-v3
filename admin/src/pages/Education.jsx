@@ -1,5 +1,6 @@
 import React from 'react'
 import { useMycontext } from '../context/MainProvider';
+import { EducationForm } from '../forms';
 import {
     List,
     Card,
@@ -8,18 +9,8 @@ import {
     Button,
     Typography,
 } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import IconButton from '@mui/material/IconButton';
-import EducationForm from '../EducationForm';
-// import SkillForm from '../SkillForm';
-// import CardMedia from '@mui/material/CardMedia';
+
 const Education = () => {
-    /**
-     * TODO:
-     * do like the entries
-     * Borrow from skills
-     */
 
     const {
         educationData,

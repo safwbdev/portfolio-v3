@@ -10,7 +10,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
-import SkillForm from '../SkillForm';
+import { SkillForm } from '../forms';
 
 const Skills = () => {
     const {
