@@ -25,51 +25,56 @@ const style = {
     justifyContent: 'center'
 };
 
-const EducationForm = () => {
 
+const ProjectForm = () => {
     const {
-        educationData,
-        setEducationData,
-        openEducationForm,
-        isEducationFormEdit,
-        setOpenEducationForm,
-        setIsEducationFormEdit,
-        currentEducation
-    } = useMycontext()
-    const [name, setName] = useState('');
-    const [location, setLocation] = useState('');
-    const [programme, setProgramme] = useState('');
+        currentProject,
+        isProjectFormEdit,
+        openProjectForm,
+        projectData,
+        setIsProjectFormEdit,
+        setOpenProjectForm,
+        setProjectData,
 
-    const handleOpen = () => setOpenEducationForm(true);
+    } = useMycontext()
+    const [title, setTitle] = useState('');
+    const [image, setImage] = useState('');
+    const [repo, setRepo] = useState('');
+    const [demo, setDemo] = useState('');
+    const [stack, setStack] = useState([]);
+
+    const handleOpen = () => setOpenProjectForm(true);
     const handleClose = () => {
-        setLocation('');
-        setProgramme('');
-        setOpenEducationForm(false);
-        setIsEducationFormEdit(false)
+        setTitle('')
+        setImage('')
+        setRepo('')
+        setDemo('')
+        setStack('')
+        setOpenProjectForm(false);
+        setIsProjectFormEdit(false)
     }
 
     const handleCreateSkill = () => {
-        setEducationData([...educationData, { name: name, location: location, programme: programme }])
+        setProjectData([...projectData, { title: title, image: image, repo: repo, demo: demo, stack: stack }])
         handleClose();
     }
     const handleUpdateSkill = () => {
 
-        const updatedEducation = [...educationData];
-        updatedEducation[currentEducation] = { name: name, location: location, programme: programme };
-        setEducationData(updatedEducation);
+        const updatedEducation = [...projectData];
+        updatedEducation[currentProject] = { title: title, image: image, repo: repo, demo: demo, stack: stack };
+        setProjectData(updatedEducation);
         handleClose();
     }
 
     useEffect(() => {
-        if (!educationData[currentEducation]) return;
-        const edu = educationData[currentEducation]
-        setName(edu.name)
-        setLocation(edu.location)
-        setProgramme(edu.programme)
-    }, [currentEducation])
-
-
-
+        if (!projectData[currentProject]) return;
+        const edu = projectData[currentProject]
+        setTitle(edu.title)
+        setImage(edu.image)
+        setRepo(edu.repo)
+        setDemo(edu.demo)
+        setStack(edu.stack)
+    }, [currentProject])
     return (
         <>
             <Fab
@@ -84,11 +89,11 @@ const EducationForm = () => {
                 aria-describedby="modal-modal-description"
                 aria-labelledby="modal-modal-title"
                 onClose={handleClose}
-                open={openEducationForm}
+                open={openProjectForm}
             >
                 <Box sx={style}>
                     <h2>
-                        {isEducationFormEdit ? 'Edit Education' : 'New Education'}
+                        {isProjectFormEdit ? 'Edit Project' : 'New Project'}
                     </h2>
                     <Stack
                         component="form"
@@ -97,30 +102,39 @@ const EducationForm = () => {
                         autoComplete="off"
                     >
                         <TextField
-                            id="name"
-                            label="Name"
+                            id="title"
+                            label="Project Title"
                             variant="outlined"
-                            value={name}
+                            value={title}
                             onChange={(e) =>
-                                setName(e.target.value)}
+                                setTitle(e.target.value)}
                         />
                         <TextField
-                            id="programme"
-                            label="Programme"
+                            id="image"
+                            label="Image"
                             variant="outlined"
-                            value={programme}
+                            value={image}
                             onChange={(e) =>
-                                setProgramme(e.target.value)}
+                                setImage(e.target.value)}
                         />
                         <TextField
-                            id="location"
-                            label="Location"
+                            id="repo"
+                            label="Repo"
                             variant="outlined"
-                            value={location}
+                            value={repo}
                             onChange={(e) =>
-                                setLocation(e.target.value)}
+                                setRepo(e.target.value)}
                         />
-                        {isEducationFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
+                        <TextField
+                            id="demo"
+                            label="Demo"
+                            variant="outlined"
+                            value={demo}
+                            onChange={(e) =>
+                                setDemo(e.target.value)}
+                        />
+                        {/* TODO: Add field for stacks  */}
+                        {isProjectFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
                             Update
                         </Button>) : (
                             <Button variant="contained" onClick={handleCreateSkill}>
@@ -138,4 +152,4 @@ const EducationForm = () => {
     )
 }
 
-export default EducationForm
+export default ProjectForm

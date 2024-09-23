@@ -20,6 +20,9 @@ const MainProvider = ({ children }) => {
     const [currentHistory, setCurrentHistory] = useState(0);
     const [openHistoryForm, setOpenHistoryForm] = useState(false);
     const [isHistoryFormEdit, setIsHistoryFormEdit] = useState(false);
+    const [currentProject, setCurrentProject] = useState(0);
+    const [openProjectForm, setOpenProjectForm] = useState(false);
+    const [isProjectFormEdit, setIsProjectFormEdit] = useState(false);
 
 
     // const update = (data) => {
@@ -69,7 +72,13 @@ const MainProvider = ({ children }) => {
         openHistoryForm,
         setOpenHistoryForm,
         isHistoryFormEdit,
-        setIsHistoryFormEdit
+        setIsHistoryFormEdit,
+        currentProject,
+        setCurrentProject,
+        openProjectForm,
+        setOpenProjectForm,
+        isProjectFormEdit,
+        setIsProjectFormEdit,
         // update
     }), [
         personalData,
@@ -99,7 +108,13 @@ const MainProvider = ({ children }) => {
         openHistoryForm,
         setOpenHistoryForm,
         isHistoryFormEdit,
-        setIsHistoryFormEdit
+        setIsHistoryFormEdit,
+        currentProject,
+        setCurrentProject,
+        openProjectForm,
+        setOpenProjectForm,
+        isProjectFormEdit,
+        setIsProjectFormEdit,
         // update
     ])
 

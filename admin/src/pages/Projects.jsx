@@ -1,14 +1,75 @@
 import React from 'react'
+import { useMycontext } from '../context/MainProvider';
+import {
+    List,
+    Card,
+    CardActions,
+    CardContent,
+    Button,
+    Typography,
+} from '@mui/material';
+import ProjectForm from '../forms/ProjectForm';
 
 const Projects = () => {
-    /**
-    * TODO:
-    * do like the entries
-    * 
-    * Borrow from skills/Education
-    */
+    const {
+        projectData,
+        setProjectData,
+        setCurrentProject,
+        setOpenProjectForm,
+        setIsProjectFormEdit,
+    } = useMycontext();
+
+    const deleteProject = (id) => {
+        setProjectData(projectData.filter((a, index) => index !== id))
+    }
+
+    const openEditForm = (id) => {
+        setIsProjectFormEdit(true)
+        setOpenProjectForm(true)
+        setCurrentProject(id)
+    }
+
+    // console.log(projectData);
+
     return (
-        <div>Projects</div>
+        <div>
+            <h1>Projects</h1>
+            <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                {projectData.map((proj, index) => (
+                    <Card sx={{ maxWidth: 345 }}>
+                        {/* <CardMedia
+                        component="img"
+                        alt="green iguana"
+                        height="140"
+                        image="/static/images/cards/contemplative-reptile.jpg"
+                    /> */}
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                {proj.title}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                {proj.repo}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                {proj.demo}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                {proj.image}
+                            </Typography>
+                            {proj.stack.map(st => (<Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                {st}-
+                            </Typography>))}
+                        </CardContent>
+                        <CardActions style={{ justifyContent: 'space-around' }}>
+                            <Button size="small" variant='outlined' style={{ flex: 1 }} onClick={() => openEditForm(index)}>Edit</Button>
+                            <Button size="small" variant='outlined' style={{ flex: 1 }} onClick={() => deleteProject(index)}>Delete</Button>
+                        </CardActions>
+                    </Card>
+                ))}
+
+            </List>
+            <ProjectForm />
+        </div>
     )
 }
 

@@ -1,4 +1,4 @@
-import './App.css'
+import { Route, Routes } from 'react-router-dom'
 import { MainProvider } from "./context/MainProvider";
 import NavBar from './NavBar';
 import Demo from './pages/Demo';
@@ -8,7 +8,7 @@ import {
   Projects,
   Skills,
 } from './pages';
-import { Route, Routes } from 'react-router-dom'
+import './App.css'
 
 function App() {
 
@@ -16,8 +16,6 @@ function App() {
    * ====
    * TODO
    * ====
-   *  - Projects Page
-   *  - Projects Form
    *  - Demo
    *  - Publish/Save LIVE functionality
    * 
@@ -32,6 +30,8 @@ function App() {
    *  = Education Form
    *  = History Page
    *  = History Form
+   *  = Projects Page
+   *  = Projects Form
    * 
    * ==========
    * Milestones

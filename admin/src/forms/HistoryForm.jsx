@@ -70,8 +70,6 @@ const HistoryForm = () => {
     useEffect(() => {
         if (!historyData[currentHistory]) return;
         const hist = historyData[currentHistory];
-        console.log(hist);
-
         setName(hist.name)
         setLocation(hist.location)
         setTitle(hist.title)
