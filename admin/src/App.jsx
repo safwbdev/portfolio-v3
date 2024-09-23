@@ -16,8 +16,6 @@ function App() {
    * ====
    * TODO
    * ====
-   *  - History Page
-   *  - History Form
    *  - Projects Page
    *  - Projects Form
    *  - Demo
@@ -32,6 +30,8 @@ function App() {
    *  = Skills Form
    *  = Education Page
    *  = Education Form
+   *  = History Page
+   *  = History Form
    * 
    * ==========
    * Milestones

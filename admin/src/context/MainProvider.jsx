@@ -17,6 +17,9 @@ const MainProvider = ({ children }) => {
     const [currentEducation, setCurrentEducation] = useState(0);
     const [openEducationForm, setOpenEducationForm] = useState(false);
     const [isEducationFormEdit, setIsEducationFormEdit] = useState(false);
+    const [currentHistory, setCurrentHistory] = useState(0);
+    const [openHistoryForm, setOpenHistoryForm] = useState(false);
+    const [isHistoryFormEdit, setIsHistoryFormEdit] = useState(false);
 
 
     // const update = (data) => {
@@ -60,7 +63,13 @@ const MainProvider = ({ children }) => {
         openEducationForm,
         setOpenEducationForm,
         isEducationFormEdit,
-        setIsEducationFormEdit
+        setIsEducationFormEdit,
+        currentHistory,
+        setCurrentHistory,
+        openHistoryForm,
+        setOpenHistoryForm,
+        isHistoryFormEdit,
+        setIsHistoryFormEdit
         // update
     }), [
         personalData,
@@ -84,7 +93,13 @@ const MainProvider = ({ children }) => {
         openEducationForm,
         setOpenEducationForm,
         isEducationFormEdit,
-        setIsEducationFormEdit
+        setIsEducationFormEdit,
+        currentHistory,
+        setCurrentHistory,
+        openHistoryForm,
+        setOpenHistoryForm,
+        isHistoryFormEdit,
+        setIsHistoryFormEdit
         // update
     ])
 

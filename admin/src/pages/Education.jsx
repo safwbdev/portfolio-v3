@@ -63,7 +63,6 @@ const Education = () => {
                 ))}
 
             </List>
-            {/* <SkillForm /> */}
             <EducationForm />
         </div>
     )
