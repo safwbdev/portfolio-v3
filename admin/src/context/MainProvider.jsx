@@ -14,6 +14,9 @@ const MainProvider = ({ children }) => {
     const [currentSkill, setCurrentSkill] = useState(0);
     const [openSkillForm, setOpenSkillForm] = useState(false);
     const [isSkillFormEdit, setIsSkillFormEdit] = useState(false);
+    const [currentEducation, setCurrentEducation] = useState(0);
+    const [openEducationForm, setOpenEducationForm] = useState(false);
+    const [isEducationFormEdit, setIsEducationFormEdit] = useState(false);
 
 
     // const update = (data) => {
@@ -51,7 +54,13 @@ const MainProvider = ({ children }) => {
         isSkillFormEdit,
         setIsSkillFormEdit,
         currentSkill,
-        setCurrentSkill
+        setCurrentSkill,
+        currentEducation,
+        setCurrentEducation,
+        openEducationForm,
+        setOpenEducationForm,
+        isEducationFormEdit,
+        setIsEducationFormEdit
         // update
     }), [
         personalData,
@@ -69,7 +78,13 @@ const MainProvider = ({ children }) => {
         isSkillFormEdit,
         setIsSkillFormEdit,
         currentSkill,
-        setCurrentSkill
+        setCurrentSkill,
+        currentEducation,
+        setCurrentEducation,
+        openEducationForm,
+        setOpenEducationForm,
+        isEducationFormEdit,
+        setIsEducationFormEdit
         // update
     ])
 

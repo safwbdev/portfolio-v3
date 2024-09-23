@@ -12,6 +12,33 @@ import { Route, Routes } from 'react-router-dom'
 
 function App() {
 
+  /**
+   * ====
+   * TODO
+   * ====
+   *  - History Page
+   *  - History Form
+   *  - Projects Page
+   *  - Projects Form
+   *  - Demo
+   *  - Publish/Save LIVE functionality
+   * 
+   * ====
+   * DONE
+   * ====
+   *  = Personal Page
+   *  = Personal Form
+   *  = Skills Page
+   *  = Skills Form
+   *  = Education Page
+   *  = Education Form
+   * 
+   * ==========
+   * Milestones
+   * ==========
+   *  - konami?
+   *  - image upload 
+   */
 
   return (
     <MainProvider>
