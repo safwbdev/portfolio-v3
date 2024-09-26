@@ -10,7 +10,6 @@ const MainProvider = ({ children }) => {
     const [historyData, setHistoryData] = useState([]);
     const [educationData, setEducationData] = useState([]);
     const [id, setId] = useState(null);
-    const [tab, setTab] = useState(0);
     const [currentSkill, setCurrentSkill] = useState(0);
     const [openSkillForm, setOpenSkillForm] = useState(false);
     const [isFormEdit, setIsFormEdit] = useState(false);

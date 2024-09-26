@@ -82,8 +82,8 @@ const NavBar = () => {
                             onClose={handleCloseNavMenu}
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                            {pages.map((page, index) => (
+                                <MenuItem onClick={handleCloseNavMenu} key={page.label}>
                                     <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
                                 </MenuItem>
                             ))}

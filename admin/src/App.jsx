@@ -38,7 +38,6 @@ function App() {
    * ==========
    * Milestones
    * ==========
-   *  - konami?
    *  - image upload 
    */
 
