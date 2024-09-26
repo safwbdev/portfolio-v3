@@ -1,5 +1,5 @@
 import React from 'react'
-import { useMycontext } from './context/MainProvider';
+import { useMycontext } from '../context/MainProvider';
 import { Snackbar, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 

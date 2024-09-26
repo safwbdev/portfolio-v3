@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { MainProvider } from "./context/MainProvider";
-import NavBar from './NavBar';
-import Notify from './Notify';
+import { NavBar, Notify } from './components';
 import Demo from './pages/Demo';
 import {
   Education, History,
