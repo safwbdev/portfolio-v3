@@ -31,9 +31,9 @@ const EducationForm = () => {
         educationData,
         setEducationData,
         openEducationForm,
-        isEducationFormEdit,
+        isFormEdit,
         setOpenEducationForm,
-        setIsEducationFormEdit,
+        setIsFormEdit,
         currentEducation,
         setNotifySave
     } = useMycontext()
@@ -47,7 +47,7 @@ const EducationForm = () => {
         setLocation('');
         setProgramme('');
         setOpenEducationForm(false);
-        setIsEducationFormEdit(false)
+        setIsFormEdit(false)
     }
 
     const handleCreateEducation = () => {
@@ -91,7 +91,7 @@ const EducationForm = () => {
             >
                 <Box sx={style}>
                     <h2>
-                        {isEducationFormEdit ? 'Edit Education' : 'New Education'}
+                        {isFormEdit ? 'Edit Education' : 'New Education'}
                     </h2>
                     <Stack
                         component="form"
@@ -123,7 +123,7 @@ const EducationForm = () => {
                             onChange={(e) =>
                                 setLocation(e.target.value)}
                         />
-                        {isEducationFormEdit ? (<Button variant="contained" onClick={handleUpdateEducation}>
+                        {isFormEdit ? (<Button variant="contained" onClick={handleUpdateEducation}>
                             Update
                         </Button>) : (
                             <Button variant="contained" onClick={handleCreateEducation}>

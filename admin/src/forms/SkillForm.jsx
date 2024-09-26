@@ -33,7 +33,7 @@ const skillTypes = ['frontend', 'backend', 'tools', 'management', 'primary', 'ga
 
 const SkillForm = () => {
 
-    const { skillData, setSkillData, openSkillForm, setOpenSkillForm, isSkillFormEdit, setIsSkillFormEdit, currentSkill, setNotifySave } = useMycontext()
+    const { skillData, setSkillData, openSkillForm, setOpenSkillForm, isFormEdit, setIsFormEdit, currentSkill, setNotifySave } = useMycontext()
     const [name, setName] = useState('');
     const [type, setType] = useState('');
     const handleOpen = () => setOpenSkillForm(true);
@@ -41,7 +41,7 @@ const SkillForm = () => {
         setName('');
         setType('');
         setOpenSkillForm(false);
-        setIsSkillFormEdit(false)
+        setIsFormEdit(false)
     }
 
     const handleCreateSkill = () => {
@@ -87,7 +87,7 @@ const SkillForm = () => {
             >
                 <Box sx={style}>
                     <h2>
-                        {isSkillFormEdit ? 'Edit Skill' : 'New Skill'}
+                        {isFormEdit ? 'Edit Skill' : 'New Skill'}
                     </h2>
                     <Stack
                         component="form"
@@ -117,7 +117,7 @@ const SkillForm = () => {
                             </Select>
                         </FormControl>
 
-                        {isSkillFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
+                        {isFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
                             Update
                         </Button>) : (
                             <Button variant="contained" onClick={handleCreateSkill}>

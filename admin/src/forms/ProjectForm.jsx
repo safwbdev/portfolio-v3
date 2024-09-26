@@ -29,10 +29,10 @@ const style = {
 const ProjectForm = () => {
     const {
         currentProject,
-        isProjectFormEdit,
         openProjectForm,
         projectData,
-        setIsProjectFormEdit,
+        isFormEdit,
+        setIsFormEdit,
         setOpenProjectForm,
         setProjectData,
         setNotifySave
@@ -51,7 +51,7 @@ const ProjectForm = () => {
         setDemo('')
         setStack('')
         setOpenProjectForm(false);
-        setIsProjectFormEdit(false)
+        setIsFormEdit(false)
     }
 
     const handleCreateProject = () => {
@@ -96,7 +96,7 @@ const ProjectForm = () => {
             >
                 <Box sx={style}>
                     <h2>
-                        {isProjectFormEdit ? 'Edit Project' : 'New Project'}
+                        {isFormEdit ? 'Edit Project' : 'New Project'}
                     </h2>
                     <Stack
                         component="form"
@@ -137,7 +137,7 @@ const ProjectForm = () => {
                                 setDemo(e.target.value)}
                         />
                         {/* TODO: Add field for stacks  */}
-                        {isProjectFormEdit ? (<Button variant="contained" onClick={handleUpdateProject}>
+                        {isFormEdit ? (<Button variant="contained" onClick={handleUpdateProject}>
                             Update
                         </Button>) : (
                             <Button variant="contained" onClick={handleCreateProject}>

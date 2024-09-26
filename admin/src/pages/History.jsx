@@ -16,7 +16,7 @@ const History = () => {
         setHistoryData,
         setCurrentHistory,
         setOpenHistoryForm,
-        setIsHistoryFormEdit,
+        setIsFormEdit,
 
     } = useMycontext();
 
@@ -24,7 +24,7 @@ const History = () => {
         setHistoryData(historyData.filter((a, index) => index !== id))
     }
     const openEditForm = (id) => {
-        setIsHistoryFormEdit(true)
+        setIsFormEdit(true)
         setOpenHistoryForm(true)
         setCurrentHistory(id)
     }

@@ -16,7 +16,7 @@ const Projects = () => {
         setProjectData,
         setCurrentProject,
         setOpenProjectForm,
-        setIsProjectFormEdit,
+        setIsFormEdit,
     } = useMycontext();
 
     const deleteProject = (id) => {
@@ -24,7 +24,7 @@ const Projects = () => {
     }
 
     const openEditForm = (id) => {
-        setIsProjectFormEdit(true)
+        setIsFormEdit(true)
         setOpenProjectForm(true)
         setCurrentProject(id)
     }

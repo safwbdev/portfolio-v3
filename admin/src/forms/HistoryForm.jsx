@@ -28,13 +28,15 @@ const style = {
 
 const HistoryForm = () => {
 
+
+    /**FIXME: STACK FUNCTION */
     const {
         historyData,
         setHistoryData,
         openHistoryForm,
         setOpenHistoryForm,
-        setIsHistoryFormEdit,
-        isHistoryFormEdit,
+        setIsFormEdit,
+        isFormEdit,
         currentHistory,
         setNotifySave
     } = useMycontext()
@@ -53,7 +55,7 @@ const HistoryForm = () => {
         setSummary('')
         setLocation('')
         setOpenHistoryForm(false);
-        setIsHistoryFormEdit(false)
+        setIsFormEdit(false)
     }
 
     const handleCreateHistory = () => {
@@ -99,7 +101,7 @@ const HistoryForm = () => {
             >
                 <Box sx={style}>
                     <h2>
-                        {isHistoryFormEdit ? 'Edit History' : 'New History'}
+                        {isFormEdit ? 'Edit History' : 'New History'}
                     </h2>
                     <Stack
                         component="form"
@@ -159,7 +161,7 @@ const HistoryForm = () => {
                             rows={2}
                             maxRows={4}
                         />
-                        {isHistoryFormEdit ? (<Button variant="contained" onClick={handleUpdateHistory}>
+                        {isFormEdit ? (<Button variant="contained" onClick={handleUpdateHistory}>
                             Update
                         </Button>) : (
                             <Button variant="contained" onClick={handleCreateHistory}>

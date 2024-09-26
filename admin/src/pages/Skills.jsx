@@ -17,7 +17,7 @@ const Skills = () => {
         skillData,
         setSkillData,
         setOpenSkillForm,
-        setIsSkillFormEdit,
+        setIsFormEdit,
         setCurrentSkill
     } = useMycontext();
 
@@ -25,7 +25,7 @@ const Skills = () => {
         setSkillData(skillData.filter((a, index) => index !== id))
     }
     const openEditForm = (id) => {
-        setIsSkillFormEdit(true)
+        setIsFormEdit(true)
         setOpenSkillForm(true)
         setCurrentSkill(id)
     }

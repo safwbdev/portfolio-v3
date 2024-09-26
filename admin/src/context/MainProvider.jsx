@@ -13,16 +13,13 @@ const MainProvider = ({ children }) => {
     const [tab, setTab] = useState(0);
     const [currentSkill, setCurrentSkill] = useState(0);
     const [openSkillForm, setOpenSkillForm] = useState(false);
-    const [isSkillFormEdit, setIsSkillFormEdit] = useState(false);
+    const [isFormEdit, setIsFormEdit] = useState(false);
     const [currentEducation, setCurrentEducation] = useState(0);
     const [openEducationForm, setOpenEducationForm] = useState(false);
-    const [isEducationFormEdit, setIsEducationFormEdit] = useState(false);
     const [currentHistory, setCurrentHistory] = useState(0);
     const [openHistoryForm, setOpenHistoryForm] = useState(false);
-    const [isHistoryFormEdit, setIsHistoryFormEdit] = useState(false);
     const [currentProject, setCurrentProject] = useState(0);
     const [openProjectForm, setOpenProjectForm] = useState(false);
-    const [isProjectFormEdit, setIsProjectFormEdit] = useState(false);
     const [notifySave, setNotifySave] = useState(false);
 
 
@@ -46,6 +43,8 @@ const MainProvider = ({ children }) => {
     }, []);
 
     const values = useMemo(() => ({
+        id,
+        setId,
         personalData,
         setPersonalData,
         projectData,
@@ -58,32 +57,28 @@ const MainProvider = ({ children }) => {
         setEducationData,
         openSkillForm,
         setOpenSkillForm,
-        isSkillFormEdit,
-        setIsSkillFormEdit,
+        isFormEdit,
+        setIsFormEdit,
         currentSkill,
         setCurrentSkill,
         currentEducation,
         setCurrentEducation,
         openEducationForm,
         setOpenEducationForm,
-        isEducationFormEdit,
-        setIsEducationFormEdit,
         currentHistory,
         setCurrentHistory,
         openHistoryForm,
         setOpenHistoryForm,
-        isHistoryFormEdit,
-        setIsHistoryFormEdit,
         currentProject,
         setCurrentProject,
         openProjectForm,
         setOpenProjectForm,
-        isProjectFormEdit,
-        setIsProjectFormEdit,
         notifySave,
         setNotifySave
         // update
     }), [
+        id,
+        setId,
         personalData,
         setPersonalData,
         projectData,
@@ -96,28 +91,22 @@ const MainProvider = ({ children }) => {
         setEducationData,
         openSkillForm,
         setOpenSkillForm,
-        isSkillFormEdit,
-        setIsSkillFormEdit,
+        isFormEdit,
+        setIsFormEdit,
         currentSkill,
         setCurrentSkill,
         currentEducation,
         setCurrentEducation,
         openEducationForm,
         setOpenEducationForm,
-        isEducationFormEdit,
-        setIsEducationFormEdit,
         currentHistory,
         setCurrentHistory,
         openHistoryForm,
         setOpenHistoryForm,
-        isHistoryFormEdit,
-        setIsHistoryFormEdit,
         currentProject,
         setCurrentProject,
         openProjectForm,
         setOpenProjectForm,
-        isProjectFormEdit,
-        setIsProjectFormEdit,
         notifySave,
         setNotifySave
         // update
