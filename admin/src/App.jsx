@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { MainProvider } from "./context/MainProvider";
 import NavBar from './NavBar';
+import Notify from './Notify';
 import Demo from './pages/Demo';
 import {
   Education, History,
@@ -18,6 +19,7 @@ function App() {
    * ====
    *  - Demo
    *  - Publish/Save LIVE functionality
+   *  - refactor?
    * 
    * ====
    * DONE
@@ -32,6 +34,7 @@ function App() {
    *  = History Form
    *  = Projects Page
    *  = Projects Form
+   *  = save/publish notifications
    * 
    * ==========
    * Milestones
@@ -51,6 +54,7 @@ function App() {
         <Route exact path='/history' element={<History />} />
         <Route exact path='/projects' element={<Projects />} />
       </Routes>
+      <Notify />
     </MainProvider>
   )
 }

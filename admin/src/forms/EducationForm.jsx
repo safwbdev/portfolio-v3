@@ -34,13 +34,15 @@ const EducationForm = () => {
         isEducationFormEdit,
         setOpenEducationForm,
         setIsEducationFormEdit,
-        currentEducation
+        currentEducation,
+        setNotifySave
     } = useMycontext()
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
     const [programme, setProgramme] = useState('');
 
     const handleOpen = () => setOpenEducationForm(true);
+
     const handleClose = () => {
         setLocation('');
         setProgramme('');
@@ -48,15 +50,16 @@ const EducationForm = () => {
         setIsEducationFormEdit(false)
     }
 
-    const handleCreateSkill = () => {
+    const handleCreateEducation = () => {
         setEducationData([...educationData, { name: name, location: location, programme: programme }])
+        setNotifySave(true)
         handleClose();
     }
-    const handleUpdateSkill = () => {
-
+    const handleUpdateEducation = () => {
         const updatedEducation = [...educationData];
         updatedEducation[currentEducation] = { name: name, location: location, programme: programme };
         setEducationData(updatedEducation);
+        setNotifySave(true)
         handleClose();
     }
 
@@ -120,10 +123,10 @@ const EducationForm = () => {
                             onChange={(e) =>
                                 setLocation(e.target.value)}
                         />
-                        {isEducationFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
+                        {isEducationFormEdit ? (<Button variant="contained" onClick={handleUpdateEducation}>
                             Update
                         </Button>) : (
-                            <Button variant="contained" onClick={handleCreateSkill}>
+                            <Button variant="contained" onClick={handleCreateEducation}>
                                 Create
                             </Button>)}
                         <Button

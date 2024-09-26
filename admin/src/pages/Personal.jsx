@@ -11,7 +11,7 @@ const style = {
 };
 
 const Personal = () => {
-    const { personalData, setPersonalData } = useMycontext();
+    const { personalData, setPersonalData, setNotifySave } = useMycontext();
     const [name, setName] = useState(personalData.name ?? '')
     const [title, setTitle] = useState(personalData.title ?? '')
     const [email, setEmail] = useState(personalData.email ?? '')
@@ -21,9 +21,9 @@ const Personal = () => {
     const [summary, setSummary] = useState(personalData.summary ?? '')
     const [cv, setCV] = useState(personalData.cv ?? '')
 
-
     const handleSave = () => {
         setPersonalData({ name: name, title: title, email: email, github: github, linkedin: linkedin, phone: phone, summary: summary, cv: cv })
+        setNotifySave(true);
     }
 
     return (

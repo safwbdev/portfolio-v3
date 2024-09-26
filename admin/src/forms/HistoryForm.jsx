@@ -35,7 +35,8 @@ const HistoryForm = () => {
         setOpenHistoryForm,
         setIsHistoryFormEdit,
         isHistoryFormEdit,
-        currentHistory
+        currentHistory,
+        setNotifySave
     } = useMycontext()
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
@@ -55,15 +56,16 @@ const HistoryForm = () => {
         setIsHistoryFormEdit(false)
     }
 
-    const handleCreateSkill = () => {
+    const handleCreateHistory = () => {
         setHistoryData([...historyData, { name: name, location: location, start: start, end: end, summary: summary, title: title, }])
+        setNotifySave(true)
         handleClose();
     }
-    const handleUpdateSkill = () => {
-
+    const handleUpdateHistory = () => {
         const updatedHistory = [...historyData];
         updatedHistory[currentHistory] = { name: name, location: location, start: start, end: end, summary: summary, title: title, };
         setHistoryData(updatedHistory);
+        setNotifySave(true)
         handleClose();
     }
 
@@ -157,10 +159,10 @@ const HistoryForm = () => {
                             rows={2}
                             maxRows={4}
                         />
-                        {isHistoryFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
+                        {isHistoryFormEdit ? (<Button variant="contained" onClick={handleUpdateHistory}>
                             Update
                         </Button>) : (
-                            <Button variant="contained" onClick={handleCreateSkill}>
+                            <Button variant="contained" onClick={handleCreateHistory}>
                                 Create
                             </Button>)}
                         <Button

@@ -23,6 +23,7 @@ const MainProvider = ({ children }) => {
     const [currentProject, setCurrentProject] = useState(0);
     const [openProjectForm, setOpenProjectForm] = useState(false);
     const [isProjectFormEdit, setIsProjectFormEdit] = useState(false);
+    const [notifySave, setNotifySave] = useState(false);
 
 
     // const update = (data) => {
@@ -79,6 +80,8 @@ const MainProvider = ({ children }) => {
         setOpenProjectForm,
         isProjectFormEdit,
         setIsProjectFormEdit,
+        notifySave,
+        setNotifySave
         // update
     }), [
         personalData,
@@ -115,6 +118,8 @@ const MainProvider = ({ children }) => {
         setOpenProjectForm,
         isProjectFormEdit,
         setIsProjectFormEdit,
+        notifySave,
+        setNotifySave
         // update
     ])
 

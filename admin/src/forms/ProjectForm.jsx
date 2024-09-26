@@ -35,7 +35,7 @@ const ProjectForm = () => {
         setIsProjectFormEdit,
         setOpenProjectForm,
         setProjectData,
-
+        setNotifySave
     } = useMycontext()
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
@@ -54,16 +54,19 @@ const ProjectForm = () => {
         setIsProjectFormEdit(false)
     }
 
-    const handleCreateSkill = () => {
+    const handleCreateProject = () => {
         setProjectData([...projectData, { title: title, image: image, repo: repo, demo: demo, stack: stack }])
+        setNotifySave(true)
         handleClose();
-    }
-    const handleUpdateSkill = () => {
 
+    }
+    const handleUpdateProject = () => {
         const updatedEducation = [...projectData];
         updatedEducation[currentProject] = { title: title, image: image, repo: repo, demo: demo, stack: stack };
         setProjectData(updatedEducation);
+        setNotifySave(true)
         handleClose();
+
     }
 
     useEffect(() => {
@@ -134,10 +137,10 @@ const ProjectForm = () => {
                                 setDemo(e.target.value)}
                         />
                         {/* TODO: Add field for stacks  */}
-                        {isProjectFormEdit ? (<Button variant="contained" onClick={handleUpdateSkill}>
+                        {isProjectFormEdit ? (<Button variant="contained" onClick={handleUpdateProject}>
                             Update
                         </Button>) : (
-                            <Button variant="contained" onClick={handleCreateSkill}>
+                            <Button variant="contained" onClick={handleCreateProject}>
                                 Create
                             </Button>)}
                         <Button
