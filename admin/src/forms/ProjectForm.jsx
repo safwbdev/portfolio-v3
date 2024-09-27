@@ -35,7 +35,8 @@ const ProjectForm = () => {
         setIsFormEdit,
         setOpenProjectForm,
         setProjectData,
-        setNotifySave
+        setNotifySave,
+        setDataUpdated
     } = useMycontext()
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
@@ -57,6 +58,7 @@ const ProjectForm = () => {
     const handleCreateProject = () => {
         setProjectData([...projectData, { title: title, image: image, repo: repo, demo: demo, stack: stack }])
         setNotifySave(true)
+        setDataUpdated(true)
         handleClose();
 
     }
@@ -65,6 +67,7 @@ const ProjectForm = () => {
         updatedEducation[currentProject] = { title: title, image: image, repo: repo, demo: demo, stack: stack };
         setProjectData(updatedEducation);
         setNotifySave(true)
+        setDataUpdated(true)
         handleClose();
 
     }

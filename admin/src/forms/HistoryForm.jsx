@@ -38,7 +38,8 @@ const HistoryForm = () => {
         setIsFormEdit,
         isFormEdit,
         currentHistory,
-        setNotifySave
+        setNotifySave,
+        setDataUpdated
     } = useMycontext()
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
@@ -61,6 +62,7 @@ const HistoryForm = () => {
     const handleCreateHistory = () => {
         setHistoryData([...historyData, { name: name, location: location, start: start, end: end, summary: summary, title: title, }])
         setNotifySave(true)
+        setDataUpdated(true)
         handleClose();
     }
     const handleUpdateHistory = () => {
@@ -68,6 +70,7 @@ const HistoryForm = () => {
         updatedHistory[currentHistory] = { name: name, location: location, start: start, end: end, summary: summary, title: title, };
         setHistoryData(updatedHistory);
         setNotifySave(true)
+        setDataUpdated(true)
         handleClose();
     }
 

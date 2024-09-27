@@ -33,7 +33,8 @@ const skillTypes = ['frontend', 'backend', 'tools', 'management', 'primary', 'ga
 
 const SkillForm = () => {
 
-    const { skillData, setSkillData, openSkillForm, setOpenSkillForm, isFormEdit, setIsFormEdit, currentSkill, setNotifySave } = useMycontext()
+    const { skillData, setSkillData, openSkillForm, setOpenSkillForm, isFormEdit, setIsFormEdit, currentSkill, setNotifySave,
+        setDataUpdated } = useMycontext()
     const [name, setName] = useState('');
     const [type, setType] = useState('');
     const handleOpen = () => setOpenSkillForm(true);
@@ -47,6 +48,7 @@ const SkillForm = () => {
     const handleCreateSkill = () => {
         setSkillData([...skillData, { title: name, type: type }])
         setNotifySave(true);
+        setDataUpdated(true)
         handleClose();
 
     }
@@ -54,8 +56,8 @@ const SkillForm = () => {
 
         const updatedSkill = [...skillData];
         updatedSkill[currentSkill] = { title: name, type: type };
+        setDataUpdated(true)
         setSkillData(updatedSkill);
-        setNotifySave(true);
         handleClose();
 
     }

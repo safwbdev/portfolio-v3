@@ -18,11 +18,13 @@ const Education = () => {
         setCurrentEducation,
         setOpenEducationForm,
         setIsFormEdit,
+        setDataUpdated
 
     } = useMycontext();
 
     const deleteEducation = (id) => {
         setEducationData(educationData.filter((a, index) => index !== id))
+        setDataUpdated(true)
     }
     const openEditForm = (id) => {
         setIsFormEdit(true)

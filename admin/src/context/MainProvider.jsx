@@ -20,6 +20,7 @@ const MainProvider = ({ children }) => {
     const [currentProject, setCurrentProject] = useState(0);
     const [openProjectForm, setOpenProjectForm] = useState(false);
     const [notifySave, setNotifySave] = useState(false);
+    const [dataUpdated, setDataUpdated] = useState(false);
 
 
     // const update = (data) => {
@@ -40,6 +41,7 @@ const MainProvider = ({ children }) => {
         }
         ).catch(err => console.log(err));
     }, []);
+
 
     const values = useMemo(() => ({
         id,
@@ -73,7 +75,9 @@ const MainProvider = ({ children }) => {
         openProjectForm,
         setOpenProjectForm,
         notifySave,
-        setNotifySave
+        setNotifySave,
+        dataUpdated,
+        setDataUpdated
         // update
     }), [
         id,
@@ -107,7 +111,9 @@ const MainProvider = ({ children }) => {
         openProjectForm,
         setOpenProjectForm,
         notifySave,
-        setNotifySave
+        setNotifySave,
+        dataUpdated,
+        setDataUpdated
         // update
     ])
 

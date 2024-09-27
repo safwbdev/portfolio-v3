@@ -17,11 +17,13 @@ const History = () => {
         setCurrentHistory,
         setOpenHistoryForm,
         setIsFormEdit,
+        setDataUpdated
 
     } = useMycontext();
 
     const deleteHistory = (id) => {
         setHistoryData(historyData.filter((a, index) => index !== id))
+        setDataUpdated(true)
     }
     const openEditForm = (id) => {
         setIsFormEdit(true)

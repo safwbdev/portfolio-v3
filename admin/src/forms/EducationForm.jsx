@@ -35,7 +35,8 @@ const EducationForm = () => {
         setOpenEducationForm,
         setIsFormEdit,
         currentEducation,
-        setNotifySave
+        setNotifySave,
+        setDataUpdated
     } = useMycontext()
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
@@ -53,6 +54,7 @@ const EducationForm = () => {
     const handleCreateEducation = () => {
         setEducationData([...educationData, { name: name, location: location, programme: programme }])
         setNotifySave(true)
+        setDataUpdated(true)
         handleClose();
     }
     const handleUpdateEducation = () => {
@@ -60,6 +62,7 @@ const EducationForm = () => {
         updatedEducation[currentEducation] = { name: name, location: location, programme: programme };
         setEducationData(updatedEducation);
         setNotifySave(true)
+        setDataUpdated(true)
         handleClose();
     }
 

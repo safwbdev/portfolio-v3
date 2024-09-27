@@ -18,11 +18,13 @@ const Skills = () => {
         setSkillData,
         setOpenSkillForm,
         setIsFormEdit,
-        setCurrentSkill
+        setCurrentSkill,
+        setDataUpdated
     } = useMycontext();
 
     const deleteSkill = (id) => {
         setSkillData(skillData.filter((a, index) => index !== id))
+        setDataUpdated(true)
     }
     const openEditForm = (id) => {
         setIsFormEdit(true)

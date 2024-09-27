@@ -17,9 +17,11 @@ const Projects = () => {
         setCurrentProject,
         setOpenProjectForm,
         setIsFormEdit,
+        setDataUpdated
     } = useMycontext();
 
     const deleteProject = (id) => {
+        setDataUpdated(true)
         setProjectData(projectData.filter((a, index) => index !== id))
     }
 
