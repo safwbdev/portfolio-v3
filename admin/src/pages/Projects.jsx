@@ -29,8 +29,6 @@ const Projects = () => {
         setCurrentProject(id)
     }
 
-    // console.log(projectData);
-
     return (
         <div>
             <h1>Projects</h1>
@@ -56,7 +54,7 @@ const Projects = () => {
                             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                                 {proj.image}
                             </Typography>
-                            {proj.stack.map(st => (<Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            {proj.stack && proj.stack.map(st => (<Typography variant="body2" sx={{ color: 'text.secondary' }}>
                                 {st}-
                             </Typography>))}
                         </CardContent>

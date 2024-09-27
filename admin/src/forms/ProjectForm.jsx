@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useMycontext } from '../context/MainProvider';
 import AddIcon from '@mui/icons-material/Add';
+import CloseIcon from '@mui/icons-material/Close';
 import {
     Button,
     Box,
@@ -16,7 +17,6 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '90%',
-
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -41,7 +41,7 @@ const ProjectForm = () => {
     const [image, setImage] = useState('');
     const [repo, setRepo] = useState('');
     const [demo, setDemo] = useState('');
-    const [stack, setStack] = useState([]);
+    const [stack, setStack] = useState(['']);
 
     const handleOpen = () => setOpenProjectForm(true);
     const handleClose = () => {
@@ -67,6 +67,19 @@ const ProjectForm = () => {
         setNotifySave(true)
         handleClose();
 
+    }
+
+    const handleStack = (index, event) => {
+        let data = [...stack];
+        data[index] = event.target.value;
+        setStack(data);
+    }
+
+    const addStack = () => {
+        setStack([...stack, ''])
+    }
+    const deleteStack = (id) => {
+        setStack(stack.filter((a, index) => index !== id))
     }
 
     useEffect(() => {
@@ -136,7 +149,31 @@ const ProjectForm = () => {
                             onChange={(e) =>
                                 setDemo(e.target.value)}
                         />
-                        {/* TODO: Add field for stacks  */}
+                        <h2>Stack</h2>
+                        {stack && stack.map((tech, tIndex) => (
+                            <div className='techInput' key={tIndex}>
+                                <TextField
+                                    id={`techInput${tIndex + 1}`}
+                                    label={`Link ${tIndex + 1}`}
+                                    onChange={e => handleStack(tIndex, e)}
+                                    value={tech}
+                                    variant="outlined"
+                                />
+                                <Button
+                                    onClick={() => deleteStack(tIndex)}
+                                    sx={{ bgcolor: 'red' }}
+                                    variant="contained"
+                                >
+                                    <CloseIcon />
+                                </Button>
+                            </div>
+
+                        ))}
+                        <Button
+                            variant="contained"
+                            onClick={addStack}>
+                            Add Tech
+                        </Button>
                         {isFormEdit ? (<Button variant="contained" onClick={handleUpdateProject}>
                             Update
                         </Button>) : (
