@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useMycontext } from '../context/MainProvider';
+import { boxStyle, containerStyle } from '../styles/Style';
 
-const style = {
-    width: '75%',
-    height: '100vh',
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-};
+
 
 const Personal = () => {
     const { personalData, setPersonalData, setNotifySave, setDataUpdated } = useMycontext();
@@ -28,9 +23,8 @@ const Personal = () => {
     }
 
     return (
-        <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-
-            <Box sx={style}>
+        <div style={containerStyle}>
+            <Box sx={boxStyle}>
                 <Stack
                     component="form"
                     spacing={2}
