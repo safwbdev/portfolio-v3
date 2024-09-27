@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom'
 import { useMycontext } from '../context/MainProvider';
+import { useLocation } from 'react-router-dom';
 
 const pages = [
     { label: 'Personal', uri: '/' },
@@ -19,12 +20,13 @@ const pages = [
     { label: 'Skills', uri: '/skills' },
     { label: 'History', uri: '/history' },
     { label: 'Education', uri: '/education' },
-    // { label: 'Demo', uri: '/demo' }
 ];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
-    const { dataUpdated } = useMycontext()
+
+    let { pathname } = useLocation();
+    const { dataUpdated, publish } = useMycontext()
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -136,6 +138,7 @@ const NavBar = () => {
                             </Button>
                         </Link>
                     </Box>
+                    {pathname.includes('demo') && (<Button color={dataUpdated ? 'error' : ''} disabled={!dataUpdated} variant='contained' onClick={() => publish()}>PUBLISH</Button>)}
                 </Toolbar>
             </Container>
         </AppBar>

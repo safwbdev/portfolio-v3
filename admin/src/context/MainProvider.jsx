@@ -23,14 +23,27 @@ const MainProvider = ({ children }) => {
     const [dataUpdated, setDataUpdated] = useState(false);
 
 
-    // const update = (data) => {
-    //     axios.put(`${import.meta.env.VITE_APP_URL}/api/portfolio/${id}`, data)
-    //         .then(result => location.reload())
-    //         .catch(err => console.log(err))
-    // }
+    const publish = () => {
+        const data = {
+            personal: personalData,
+            projects: projectData,
+            skills: skillData,
+            history: historyData,
+            education: educationData,
+        }
+        console.log('PUBLISHED', data);
+        axios.put(`${import.meta.env.VITE_APP_URL}/api/portfolio/${id}`, data)
+            .then(result => location.reload())
+            .catch(err => console.log(err))
+        setDataUpdated(false);
+        setNotifySave(true);
+
+    }
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_APP_URL}/api/portfolio`).then(result => {
+            console.log(result.data[0]);
+
             const { personal, education, history, projects, skills, _id } = result.data[0];
             setId(_id)
             setPersonalData(personal[0]);
@@ -77,8 +90,8 @@ const MainProvider = ({ children }) => {
         notifySave,
         setNotifySave,
         dataUpdated,
-        setDataUpdated
-        // update
+        setDataUpdated,
+        publish
     }), [
         id,
         setId,
@@ -113,8 +126,8 @@ const MainProvider = ({ children }) => {
         notifySave,
         setNotifySave,
         dataUpdated,
-        setDataUpdated
-        // update
+        setDataUpdated,
+        publish
     ])
 
     return (

@@ -17,7 +17,6 @@ function App() {
    * TODO
    * ====
    *  - Demo
-   *  - Publish/Save LIVE functionality
    *  - refactor?
    * 
    * ====
@@ -34,6 +33,7 @@ function App() {
    *  = Projects Page
    *  = Projects Form
    *  = save/publish notifications
+   *  = Publish/Save LIVE functionality
    * 
    * ==========
    * Milestones
