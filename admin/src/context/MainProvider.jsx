@@ -42,6 +42,7 @@ const MainProvider = ({ children }) => {
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_APP_URL}/api/portfolio`).then(result => {
+            console.log('GETTING DATA');
             console.log(result.data[0]);
 
             const { personal, education, history, projects, skills, _id } = result.data[0];
