@@ -4,12 +4,13 @@ import Projects from "./Projects";
 import History from "./History";
 import Personal from "./Personal";
 import Skills from "./Skills";
-
+import ImageUpload from "./ImageUpload";
 export {
     Demo,
     Education,
     Projects,
     History,
     Personal,
-    Skills
+    Skills,
+    ImageUpload
 }

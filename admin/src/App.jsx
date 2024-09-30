@@ -7,6 +7,7 @@ import {
   Personal,
   Projects,
   Skills,
+  ImageUpload
 } from './pages';
 import './App.css'
 
@@ -18,6 +19,7 @@ function App() {
    * ====
    *  - Demo
    *  - refactor?
+   *  - image upload for projects, history, personal, education
    * 
    * ====
    * DONE
@@ -35,10 +37,6 @@ function App() {
    *  = save/publish notifications
    *  = Publish/Save LIVE functionality
    *  - Loading status
-   * 
-   * ==========
-   * Milestones
-   * ==========
    *  - image upload 
    */
 
@@ -52,6 +50,7 @@ function App() {
         <Route exact path='/education' element={<Education />} />
         <Route exact path='/history' element={<History />} />
         <Route exact path='/projects' element={<Projects />} />
+        <Route exact path='/image' element={<ImageUpload />} />
       </Routes>
       <Notify />
     </MainProvider>

@@ -20,6 +20,7 @@ const pages = [
     { label: 'Skills', uri: '/skills' },
     { label: 'History', uri: '/history' },
     { label: 'Education', uri: '/education' },
+    { label: 'Image', uri: '/image' },
 ];
 
 const NavBar = () => {
