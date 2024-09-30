@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMycontext } from '../context/MainProvider';
 import { boxStyle, containerStyle } from '../styles/Style';
-import { Box, Button } from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 
 
@@ -12,7 +12,8 @@ const Demo = () => {
         projectData,
         skillData,
         historyData,
-        educationData
+        educationData,
+        isLoaded
     } = useMycontext();
 
     const {
@@ -28,7 +29,7 @@ const Demo = () => {
 
     return (
         <div style={containerStyle}>
-            <Box sx={boxStyle}>
+            {isLoaded ? (<Box sx={boxStyle}>
                 <Grid container spacing={6}>
                     <Grid size={6}>
                         <h1>Personal</h1>
@@ -69,7 +70,7 @@ const Demo = () => {
                         ))}
                     </Grid>
                 </Grid>
-            </Box>
+            </Box>) : (<CircularProgress />)}
         </div>
     )
 }

@@ -21,6 +21,7 @@ const MainProvider = ({ children }) => {
     const [openProjectForm, setOpenProjectForm] = useState(false);
     const [notifySave, setNotifySave] = useState(false);
     const [dataUpdated, setDataUpdated] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
 
     const publish = () => {
@@ -52,6 +53,7 @@ const MainProvider = ({ children }) => {
             setEducationData(education);
             setHistoryData(history);
             setSkillData(skills);
+            setIsLoaded(true)
         }
         ).catch(err => console.log(err));
     }, []);
@@ -92,6 +94,7 @@ const MainProvider = ({ children }) => {
         setNotifySave,
         dataUpdated,
         setDataUpdated,
+        isLoaded,
         publish
     }), [
         id,
@@ -128,6 +131,7 @@ const MainProvider = ({ children }) => {
         setNotifySave,
         dataUpdated,
         setDataUpdated,
+        isLoaded,
         publish
     ])
 

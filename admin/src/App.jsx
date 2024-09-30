@@ -34,6 +34,7 @@ function App() {
    *  = Projects Form
    *  = save/publish notifications
    *  = Publish/Save LIVE functionality
+   *  - Loading status
    * 
    * ==========
    * Milestones

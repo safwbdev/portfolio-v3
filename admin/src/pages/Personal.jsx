@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useMycontext } from '../context/MainProvider';
 import { boxStyle, containerStyle } from '../styles/Style';
-
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Personal = () => {
-    const { personalData, setPersonalData, setNotifySave, setDataUpdated } = useMycontext();
+    const { personalData, setPersonalData, setNotifySave, setDataUpdated, isLoaded } = useMycontext();
     const [name, setName] = useState(personalData.name ?? '')
     const [title, setTitle] = useState(personalData.title ?? '')
     const [email, setEmail] = useState(personalData.email ?? '')
@@ -25,7 +24,7 @@ const Personal = () => {
     return (
         <div style={containerStyle}>
             <Box sx={boxStyle}>
-                <Stack
+                {isLoaded ? (<Stack
                     component="form"
                     spacing={2}
                     noValidate
@@ -104,7 +103,7 @@ const Personal = () => {
                         onClick={() => handleSave()}>
                         Save
                     </Button>
-                </Stack>
+                </Stack>) : (<CircularProgress />)}
             </Box>
         </div>
     )
